@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5817382630886925753}
   - component: {fileID: 266058178186032979}
-  - component: {fileID: 6858713949268581746}
+  - component: {fileID: 247863597673570072}
   m_Layer: 0
   m_Name: TubeCombo
   m_TagString: Untagged
@@ -51,7 +51,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
---- !u!114 &6858713949268581746
+--- !u!114 &247863597673570072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5817382630886925754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd0b57ade06dd46f6860cf1112ffea31, type: 3}
+  m_Script: {fileID: 11500000, guid: a3361af5fff1e414d926dd0436f8c0e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4588939751864852671
