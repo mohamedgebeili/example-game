@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Tube : MonoBehaviour
 {
+    [SerializeField] private float Speedtime;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,6 @@ public class Tube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left*Time.deltaTime);
+        transform.Translate(Vector3.left*Time.deltaTime*Speedtime);
     }
 }
