@@ -10,12 +10,6 @@ public class SpaceInvader : MonoBehaviour
     private PlayerRotation playerRotation;
     private int score = 0;
 
-    public void IncreaseScore()
-    {
-        score++;
-        print("NEW SCORE: " + score);
-    }
-
     private void FlyUp()
     {
         rb.AddForce(Vector3.up * speed);
@@ -37,7 +31,7 @@ public class SpaceInvader : MonoBehaviour
             FlyUp();
         }
 
-        playerRotation.Rotate(rb.velocity.y);
+        // playerRotation.Rotate(rb.velocity.y);
     }
 
     private void OnCollisionEnter(Collision collision)

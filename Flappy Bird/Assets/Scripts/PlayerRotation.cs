@@ -8,8 +8,6 @@ public class PlayerRotation : MonoBehaviour
     private float rotationTimer = 0;
     private bool isGoingUp = false;
 
-
-
     public void Rotate(float yVelocity)
     {
         if (yVelocity > 0 && !isGoingUp)
