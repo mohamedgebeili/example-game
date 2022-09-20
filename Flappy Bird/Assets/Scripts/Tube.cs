@@ -1,19 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tube : MonoBehaviour
 {
-    [SerializeField] private float Speedtime;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float speed = 2;
+    private bool hasPassedPlayer;
+    private Transform player;
+
+    public void AssignPlayer(Transform player)
     {
-        
+        this.player = player;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        transform.Translate(Vector3.left*Time.deltaTime*Speedtime);
+        transform.Translate(speed * Time.deltaTime * Vector3.left);
+
+        if (!hasPassedPlayer && transform.position.x < player.position.x)
+        {
+            hasPassedPlayer = true;
+            player.GetComponent<SpaceInvader>().IncreaseScore();
+        }
     }
 }

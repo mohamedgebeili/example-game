@@ -5,22 +5,18 @@ using UnityEngine;
 public class TubeSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject tube;
-    [SerializeField] private float Spawnspeed;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float spawnSpeed = 3;
+    [SerializeField] private Transform player;
+
+    private void Start()
     {
-        TubeObstical();
-        InvokeRepeating("TubeObstical", 0 , Spawnspeed);
+        InvokeRepeating(nameof(SpawnTube), 0, spawnSpeed);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void TubeObstical()
+    private void SpawnTube()
     {
         float randomheight = Random.Range(-0.6f,2.7f);
-        Instantiate(tube,new Vector3(transform.position.x ,randomheight,0),Quaternion.identity);  
+        GameObject newTube = Instantiate(tube,new Vector3(transform.position.x ,randomheight,0),Quaternion.identity);
+        newTube.GetComponent<Tube>().AssignPlayer(player);
      }
 }

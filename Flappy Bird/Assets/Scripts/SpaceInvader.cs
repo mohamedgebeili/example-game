@@ -3,23 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SpaceInvador : MonoBehaviour
+public class SpaceInvader : MonoBehaviour
 {
     [SerializeField] private float speed = 100;
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody rb;
+    private PlayerRotation playerRotation;
+    private int score = 0;
+
+    public void IncreaseScore()
     {
+        score++;
+        print("NEW SCORE: " + score);
+    }
+
+    private void FlyUp()
+    {
+        rb.AddForce(Vector3.up * speed);
+    }
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        playerRotation = GetComponent<PlayerRotation>();
         FlyUp();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetButtonDown("Jump"))
         {
             FlyUp();
         }
 
+        playerRotation.Rotate(rb.velocity.y);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -28,11 +46,4 @@ public class SpaceInvador : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
-
-    private void FlyUp()
-    {
-        GetComponent<Rigidbody>().AddForce(Vector3.up * speed);
-    }
-
-  
 }
