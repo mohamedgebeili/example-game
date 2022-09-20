@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +6,6 @@ public class SpaceInvader : MonoBehaviour
     [SerializeField] private float speed = 100;
     private Rigidbody rb;
     private PlayerRotation playerRotation;
-    private int score = 0;
 
     private void FlyUp()
     {
