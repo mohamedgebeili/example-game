@@ -13,12 +13,10 @@ public class PlayerRotation : MonoBehaviour
         if (yVelocity > 0 && !isGoingUp)
         {
             isGoingUp = true;
-            print("GOING UP");
         }
         else if (yVelocity < 0 && isGoingUp)
         {
             isGoingUp = false;
-            print("GOING DOWN");
         }
 
 

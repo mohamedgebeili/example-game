@@ -6,6 +6,13 @@ public class SpaceInvader : MonoBehaviour
     [SerializeField] private float speed = 100;
     private Rigidbody rb;
     private PlayerRotation playerRotation;
+    private int score = 0;
+
+    public void IncreaseScore()
+    {
+        score++;
+        print("SCORE: " + score);
+    }
 
     private void FlyUp()
     {
@@ -33,8 +40,15 @@ public class SpaceInvader : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        print("KOLLISION ERKANNT");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (collision.gameObject.tag.ToLower() == "obstacle")
+        {
+            GetComponent<FallApart>().Activate();
+            Invoke(nameof(RestartGame), 2);
+        }
+    }
 
+    private void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 247863597673570072}
   m_Layer: 0
   m_Name: TubeCombo
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3361af5fff1e414d926dd0436f8c0e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speedtime: 2
+  speed: 2
 --- !u!1001 &4588939751864852671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -122,6 +122,10 @@ PrefabInstance:
     - target: {fileID: 7484770864179936217, guid: d9eead6a48b8a46ca8b450bb768e2985, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484770864179936217, guid: d9eead6a48b8a46ca8b450bb768e2985, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9eead6a48b8a46ca8b450bb768e2985, type: 3}
@@ -184,6 +188,10 @@ PrefabInstance:
     - target: {fileID: 7484770864179936217, guid: d9eead6a48b8a46ca8b450bb768e2985, type: 3}
       propertyPath: m_Name
       value: TubeTop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484770864179936217, guid: d9eead6a48b8a46ca8b450bb768e2985, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9eead6a48b8a46ca8b450bb768e2985, type: 3}
