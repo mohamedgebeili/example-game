@@ -4,19 +4,30 @@ using UnityEngine.SceneManagement;
 public class SpaceInvader : MonoBehaviour
 {
     [SerializeField] private float speed = 100;
+    [SerializeField] private AudioSource flySound;
+    [SerializeField] private AudioSource deathSound;
     private Rigidbody rb;
     private PlayerRotation playerRotation;
     private int score = 0;
+    private bool isAlive = true;
 
     public void IncreaseScore()
     {
         score++;
-        print("SCORE: " + score);
     }
 
     private void FlyUp()
     {
         rb.AddForce(Vector3.up * speed);
+        flySound.Play();
+    }
+
+    private void Die()
+    {
+        isAlive = false;
+        deathSound.Play();
+        GetComponent<FallApart>().Activate();
+        Invoke(nameof(RestartGame), 2);
     }
 
     // Start is called before the first frame update
@@ -40,10 +51,9 @@ public class SpaceInvader : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag.ToLower() == "obstacle")
+        if (isAlive && collision.gameObject.tag.ToLower() == "obstacle")
         {
-            GetComponent<FallApart>().Activate();
-            Invoke(nameof(RestartGame), 2);
+            Die();
         }
     }
 
