@@ -1,11 +1,15 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 public class SpaceInvader : MonoBehaviour
 {
     [SerializeField] private float speed = 100;
     [SerializeField] private AudioSource flySound;
     [SerializeField] private AudioSource deathSound;
+    [SerializeField] private AudioSource scoreSound;
+    [SerializeField] private TMP_Text scoreUI;
     private Rigidbody rb;
     private PlayerRotation playerRotation;
     private int score = 0;
@@ -14,6 +18,8 @@ public class SpaceInvader : MonoBehaviour
     public void IncreaseScore()
     {
         score++;
+        scoreUI.text = score.ToString();
+        scoreSound.Play();
     }
 
     private void FlyUp()
