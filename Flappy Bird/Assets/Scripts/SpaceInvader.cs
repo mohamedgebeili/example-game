@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 public class SpaceInvader : MonoBehaviour
 {
     [SerializeField] private float speed = 100;
-    [SerializeField] private AudioSource flySound;
-    [SerializeField] private AudioSource deathSound;
-    [SerializeField] private AudioSource scoreSound;
     [SerializeField] private TMP_Text scoreUI;
     private Rigidbody rb;
     private PlayerRotation playerRotation;
@@ -19,19 +16,16 @@ public class SpaceInvader : MonoBehaviour
     {
         score++;
         scoreUI.text = score.ToString();
-        scoreSound.Play();
     }
 
     private void FlyUp()
     {
         rb.AddForce(Vector3.up * speed);
-        flySound.Play();
     }
 
     private void Die()
     {
         isAlive = false;
-        deathSound.Play();
         GetComponent<FallApart>().Activate();
         Invoke(nameof(RestartGame), 2);
     }
