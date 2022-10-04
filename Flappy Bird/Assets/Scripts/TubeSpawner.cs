@@ -15,6 +15,7 @@ public class TubeSpawner : MonoBehaviour
     {
         float randomheight = Random.Range(-0.6f,2.7f);
         GameObject newTube = Instantiate(tube,new Vector3(transform.position.x ,randomheight,0),Quaternion.identity);
+        newTube.transform.parent = transform;
         newTube.GetComponent<Tube>().AssignPlayer(player);
      }
 }
