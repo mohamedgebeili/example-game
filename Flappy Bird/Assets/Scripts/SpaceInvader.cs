@@ -10,7 +10,7 @@ public class SpaceInvader : MonoBehaviour
     [SerializeField] private AudioSource flySound;
     [SerializeField] private AudioSource deathSound;
     [SerializeField] private AudioSource scoreSound;
-
+    [SerializeField] private PauseManager paused;
     private Rigidbody rb;
     private PlayerRotation playerRotation;
     private int score = 0;
@@ -25,8 +25,12 @@ public class SpaceInvader : MonoBehaviour
 
     private void FlyUp()
     {
-        flySound.Play();
-        rb.AddForce(Vector3.up * speed);
+        
+        if (!paused.isPaused)
+        {
+            flySound.Play();
+            rb.AddForce(Vector3.up * speed);
+        }
     }
 
 
