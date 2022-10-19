@@ -9,7 +9,12 @@ public class FallApart : MonoBehaviour
 
     public void Activate()
     {
-        // TODO
+      
+        for (int i = 0; i < rigidbodies.Length; i++)
+        {
+            rigidbodies[i].isKinematic = false;
+            colliders[i].enabled = true;
+        }
     }
 
     private void Awake()

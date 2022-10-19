@@ -7,6 +7,10 @@ public class SpaceInvader : MonoBehaviour
 {
     [SerializeField] private float speed = 100;
     [SerializeField] private TMP_Text scoreUI;
+    [SerializeField] private AudioSource flySound;
+    [SerializeField] private AudioSource deathSound;
+    [SerializeField] private AudioSource scoreSound;
+
     private Rigidbody rb;
     private PlayerRotation playerRotation;
     private int score = 0;
@@ -14,17 +18,21 @@ public class SpaceInvader : MonoBehaviour
 
     public void IncreaseScore()
     {
+        scoreSound.Play();
         score++;
         scoreUI.text = score.ToString();
     }
 
     private void FlyUp()
     {
+        flySound.Play();
         rb.AddForce(Vector3.up * speed);
     }
 
+
     private void Die()
     {
+        deathSound.Play();
         isAlive = false;
         GetComponent<FallApart>().Activate();
         Invoke(nameof(RestartGame), 2);
