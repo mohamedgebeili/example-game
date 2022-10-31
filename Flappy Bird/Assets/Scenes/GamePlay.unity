@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2834,9 +2834,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: -40}
-  m_SizeDelta: {x: -20, y: 50}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 500, y: -60}
+  m_SizeDelta: {x: 942, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555857465
 MonoBehaviour:
@@ -2867,8 +2867,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255403
+  m_fontColor: {r: 0.16812241, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2885,8 +2885,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3549,6 +3549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1840927724}
+  - component: {fileID: 1840927725}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -3574,6 +3575,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1840927725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840927723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c343bd608db4a5f985568423a177b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1851226652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3871,6 +3885,7 @@ MonoBehaviour:
   deathSound: {fileID: 1975503260}
   scoreSound: {fileID: 1975503261}
   paused: {fileID: 1975503262}
+  colorChange: {fileID: 1840927725}
 --- !u!114 &1975503256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3883,8 +3898,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 549f3c2b368aa453ab09aa9128e5eb67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxZRotation: 15
-  rotationDuration: 10
+  maxZRotation: 10
+  rotationDuration: 100
 --- !u!136 &1975503257
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4431,6 +4446,7 @@ MonoBehaviour:
   tube: {fileID: 5817382630886925754, guid: 34d75856882a247d6afc931d61024ebf, type: 3}
   spawnSpeed: 3
   player: {fileID: 1975503252}
+  colorChanger: {fileID: 1840927725}
 --- !u!4 &2060385595
 Transform:
   m_ObjectHideFlags: 0

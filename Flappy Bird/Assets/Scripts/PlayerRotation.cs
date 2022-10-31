@@ -13,18 +13,18 @@ public class PlayerRotation : MonoBehaviour
         if (yVelocity > 0 && !isGoingUp)
         {
             isGoingUp = true;
+            rotationTimer = 0;
         }
         else if (yVelocity < 0 && isGoingUp)
         {
             isGoingUp = false;
+            rotationTimer = 0;
         }
-
-
-        Quaternion startRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, maxZRotation);
-        Quaternion endRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, -maxZRotation);
-
         rotationTimer += Time.deltaTime;
-        transform.rotation = Quaternion.Slerp(startRotation, endRotation, rotationTimer / rotationDuration);
+
+        float targetZ = isGoingUp ? maxZRotation : -maxZRotation;
+        Quaternion endRotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, targetZ);
+        transform.rotation = Quaternion.Slerp(transform.rotation, endRotation, rotationTimer / rotationDuration);
     }
 
 }

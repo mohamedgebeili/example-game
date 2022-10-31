@@ -5,6 +5,7 @@ public class TubeSpawner : MonoBehaviour
     [SerializeField] private GameObject tube;
     [SerializeField] private float spawnSpeed = 3;
     [SerializeField] private Transform player;
+    [SerializeField] private ColorChanger colorChanger;
 
     private void Start()
     {
@@ -17,5 +18,10 @@ public class TubeSpawner : MonoBehaviour
         GameObject newTube = Instantiate(tube,new Vector3(transform.position.x ,randomheight,0),Quaternion.identity);
         newTube.transform.parent = transform;
         newTube.GetComponent<Tube>().AssignPlayer(player);
+
+        foreach (MeshRenderer meshRenderer in newTube.GetComponentsInChildren<MeshRenderer>())
+        {
+            colorChanger.AddColorChangeable(meshRenderer);
+        }
      }
 }

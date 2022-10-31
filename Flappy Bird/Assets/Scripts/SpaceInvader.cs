@@ -11,6 +11,7 @@ public class SpaceInvader : MonoBehaviour
     [SerializeField] private AudioSource deathSound;
     [SerializeField] private AudioSource scoreSound;
     [SerializeField] private PauseManager paused;
+    [SerializeField] private ColorChanger colorChange;
     private Rigidbody rb;
     private PlayerRotation playerRotation;
     private int score = 0;
@@ -39,6 +40,8 @@ public class SpaceInvader : MonoBehaviour
         deathSound.Play();
         isAlive = false;
         GetComponent<FallApart>().Activate();
+        colorChange.StartColorFade();
+
         Invoke(nameof(RestartGame), 2);
     }
 
@@ -53,12 +56,8 @@ public class SpaceInvader : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
-        {
-            FlyUp();
-        }
-
-        // playerRotation.Rotate(rb.velocity.y);
+        if (Input.GetButtonDown("Jump")) FlyUp();
+        if (isAlive) playerRotation.Rotate(rb.velocity.y);
     }
 
     private void OnCollisionEnter(Collision collision)
