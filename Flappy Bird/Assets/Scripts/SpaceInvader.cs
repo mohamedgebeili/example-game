@@ -34,7 +34,6 @@ public class SpaceInvader : MonoBehaviour
         }
     }
 
-
     private void Die()
     {
         deathSound.Play();

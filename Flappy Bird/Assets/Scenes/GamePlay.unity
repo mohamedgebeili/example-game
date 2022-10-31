@@ -1199,7 +1199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pause
+  m_text: PAUSE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1209,7 +1209,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.16862746, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3587,7 +3587,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c343bd608db4a5f985568423a177b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endColor: {r: 0, g: 0, b: 0, a: 0}
+  endColor: {r: 1, g: 0, b: 0, a: 0}
+  fadeDuration: 1
 --- !u!1001 &1851226652
 PrefabInstance:
   m_ObjectHideFlags: 0
