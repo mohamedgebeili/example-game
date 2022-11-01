@@ -5,32 +5,50 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     public bool isPaused;
-    [SerializeField] private GameObject pausedText;
+    public bool hasGameStarted;
+   [SerializeField] private GameObject pausedText;
+    [SerializeField] private GameObject startText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        PauseGame();
     }
 
     // Update is called once per frame
     void Update()
 
     {
-        if (Input.GetButtonDown("Cancel"))
+        if(hasGameStarted)
         {
-            if (isPaused)
+            if (Input.GetButtonDown("Cancel"))
             {
+                if (isPaused)
+                {
+                    ResumeGame();
+                    isPaused = false;
+                    pausedText.SetActive(false);
+                }
+                else
+                {
+                    PauseGame();
+                    isPaused = true;
+                    pausedText.SetActive(true);
+                }
+            }
+           
+                
+        }
+        else
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                hasGameStarted = true;
                 ResumeGame();
-                isPaused = false;
-                pausedText.SetActive(false);
+                startText.SetActive(false);
             }
-            else
-            {
-                PauseGame();
-                isPaused = true;
-                pausedText.SetActive(true);
-            }
-        }    
+
+        }
+        
     }
     void PauseGame()
     {
