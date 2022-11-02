@@ -1,22 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseManager : MonoBehaviour
 {
     public bool isPaused;
     public bool hasGameStarted;
-   [SerializeField] private GameObject pausedText;
+    [SerializeField] private GameObject pausedText;
     [SerializeField] private GameObject startText;
-    // Start is called before the first frame update
-    void Start()
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        isPaused = false;
+        pausedText.SetActive(false);
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    private void Start()
     {
         PauseGame();
     }
 
-    // Update is called once per frame
-    void Update()
-
+    private void Update()
     {
         if(hasGameStarted)
         {
@@ -25,8 +38,6 @@ public class PauseManager : MonoBehaviour
                 if (isPaused)
                 {
                     ResumeGame();
-                    isPaused = false;
-                    pausedText.SetActive(false);
                 }
                 else
                 {
@@ -49,13 +60,5 @@ public class PauseManager : MonoBehaviour
 
         }
         
-    }
-    void PauseGame()
-    {
-        Time.timeScale = 0;
-    }
-    void ResumeGame()
-    {
-        Time.timeScale = 1;
     }
 }

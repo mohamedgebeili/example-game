@@ -9,7 +9,6 @@ public class FallApart : MonoBehaviour
 
     public void Activate()
     {
-      
         for (int i = 0; i < rigidbodies.Length; i++)
         {
             rigidbodies[i].isKinematic = false;
